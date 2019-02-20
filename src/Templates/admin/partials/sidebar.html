@@ -1,0 +1,53 @@
+<section class="left-nav">
+  <header class="left-nav__header">
+    <h1>Admin Area </h1>
+  </header>
+  <div class="left-nav__profile">
+    <div class="left-nav__profile-wrap">
+      <fig>
+        <img src="{{ (actor.id ~ '.jpg') | image('user', '1_1') }}" alt="">
+      </fig>
+      <div class="left-nav__profile-name">welcome
+        <h2>{{ actor.fullname }}</h2>
+      </div>
+    </div>
+  </div>
+  <nav>
+    <ul>
+      {% if 'admin_dashboard' in actor.roles %}
+      <li>
+        <a href="{{ url('dashboard.index') }}">
+          <span class="fa fa-home"></span>
+          <div class="left-nav__label">Dashboard</div>
+          <div class="clearfix"></div>
+        </a>
+      </li>
+      {% endif %}
+      {% if 'user_read' in actor.roles %}
+      <li>
+        <a href="{{ url('user.index') }}">
+          <span class="fa fa-user-circle"></span>
+          <div class="left-nav__label">Users</div>
+          <div class="clearfix"></div>
+        </a>
+      </li>
+      {% endif %}
+      {% if 'user_group_read' in actor.roles %}
+      <li>
+        <a href="{{ url('user_group.index') }}">
+          <span class="fa fa-users"></span>
+          <div class="left-nav__label">User Group</div>
+          <div class="clearfix"></div>
+        </a>
+      </li>
+      {% endif %}
+      <li class="last">
+        <a href="{{ url('login.logout') }}">
+          <span class="fa fa-sign-out"></span>
+          <div class="left-nav__label">Sign Out</div>
+          <div class="clearfix"></div>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</section>

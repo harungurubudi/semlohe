@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="{{ 'admin/css/font-awesome.min.css' | assets }}" rel="stylesheet">
+    <link href="{{ 'admin/css/login.css' | assets }}" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <div class="login">
+        <form action="{{ target }}" method="post">
+          <div class="login__form">
+            <header>
+              <h1>Change Password</h1>
+            </header>
+            <div class="login__form-input">
+              Hi, {{ user.fullname }}. Please your new password.
+            </div>
+            <div class="login__form-input">
+              <input 
+                name="password" 
+                type="password" 
+                value=""
+                placeholder="Your new password" />
+                {% if errors.password is defined and errors.password is not empty %}
+                <ul class="parsley-errors-list filled">
+                  {% for error in errors.password %}
+                  <li class="parsley-required">{{ error | e }}</li>
+                  {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+            <div class="login__form-input">
+              <input 
+                name="password_repeat" 
+                type="password" 
+                value=""
+                placeholder="Repeat your password" />
+                {% if errors.password_repeat is defined and errors.password_repeat is not empty %}
+                <ul class="parsley-errors-list filled">
+                  {% for error in errors.password_repeat %}
+                  <li class="parsley-required">{{ error | e }}</li>
+                  {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+            <div class="login__form-submit">
+              <button type="submit">Submit </button>
+              <a href="{{ url('login.index') }}">Back to Login</a>
+              <div class="clearfix"></div>
+            </div>
+          </div>
+        </form>
+        <div class="copyright">©2018 All Rights Reserved. Privacy and Terms.</div>
+      </div>
+    </div>
+  </body>
+</html>

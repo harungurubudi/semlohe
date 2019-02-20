@@ -1,0 +1,57 @@
+{
+    "base": {
+        "app_name": "Semlohe",
+        "url": "http://api.dev.semlohe.id/semlohe",
+        "assets": "http://api.dev.semlohe.id/semlohe/public/assets"
+    },
+    "default": {
+        "locale": "id_id",
+        "lang": "id"
+    },
+    "env": {
+        "name": "dev",
+        "enable_profiler": true,
+        "debug": true
+    },
+    "db": {
+        "driver": "mysql",
+        "host": "localhost",
+        "port": 3306,
+        "database": "semlohe",
+        "username": "kaptensemlohe",
+        "password": "MuachMuach100x!",
+        "charset": "utf8",
+        "collation": "utf8_unicode_ci",
+        "prefix": "",
+        "strict": false,
+        "engine": null,
+        "logging": true
+    },
+    "mail": {
+        "from": "semlohe.id",
+        "from_email": "info@semlohe.id",
+        "smtp": {
+            "host": "smtp.sendgrid.net",
+            "port": "587",
+            "username": "apikey",
+            "password": "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",
+            "encryption": null,
+            "auth_mode": null
+        }
+    },
+    "cookie": {
+        "ttl": 7776000
+    },
+    "security": {
+        "encryption_key": "def000002eb60a2573968ff1f1c0e7c4e37c88c86fcf95dd7ed19a5e01b39bf731177654f965a275b55c05c8d6b831aa0f18b27fe343c6754c4ef11f401083e65c597c94",
+        "jwt_key": "05MNYv12RdqGGGf9KywmcrSqVzSBY3jN"
+    },
+    "token_payload": {
+        "login_access_token": "EX0KsQ2LP[aed#ca",
+        "login_refresh_token": "kcW}KBJqR{8zvldr",
+        "auth_code": "t$u&?wgxF?mt]?{p",
+        "oauth_access_token": "6V[j0FRGgl?WmR?}",
+        "oauth_refresh_token": "f2gaz}1Pt5NU",
+        "change_password": "0?znQ7w^jxZ@m:vb"
+    }
+}

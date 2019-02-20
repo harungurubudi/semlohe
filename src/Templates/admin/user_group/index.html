@@ -1,0 +1,120 @@
+{% extends 'admin/app.html' %}
+
+{% block content %}
+<div class="main-wrapper">
+  <div class="right-spacer"></div>
+  <div class="content-body">
+    <div class="content-body__wrap" id="site-body">
+      <div class="m-4">
+        <header>
+          <h3>{{ title }}</h3>
+        </header>
+      </div>
+      {% include 'admin/partials/breadcrumb.html' %}
+      <div class="m-4">
+        <div class="datatable">
+          <header class="datatable__header">
+            <div class="datatable__button">
+              <a href="{{ url('user_group.create') }}">
+                <span class="fa fa-plus"></span>&nbsp; Create New Record</a>
+            </div>
+            <form method="GET" action="{{ url('user_group.index') }}">  
+              <div class="datatable__search">
+                <input type="text" name="keyword" value="{{ filters.keyword }}" placeholder="Search.." aria-label="">
+                <div class="datatable__search-button">
+                  <button type="submit">
+                    <span class="fa fa-search"></span>
+                  </button>
+                </div>
+              </div>
+            </form>
+            {% include 'admin/partials/pagination.html' %}
+            <div class="clearfix"></div>
+          </header>
+          <table class="datatable__body">
+            <thead>
+              <tr>
+                <th>
+                  <a href="{{ sortlink.name }}">Name
+                  {% if meta.sorting.sort_by == 'name' %}
+                    {% if meta.sorting.order == 'ASC' %}
+                    <span class="fa fa-caret-down"></span>
+                    {% else %}
+                    <span class="fa fa-caret-up"></span>
+                    {% endif %}
+                  {% endif %}
+                  </a>
+                </th>
+                <th style="width: 150px;" class="text-center">
+                  <a href="{{ sortlink.tier }}">Tier
+                  {% if meta.sorting.sort_by == 'tier' %}
+                    {% if meta.sorting.order == 'ASC' %}
+                    <span class="fa fa-caret-down"></span>
+                    {% else %}
+                    <span class="fa fa-caret-up"></span>
+                    {% endif %}
+                  {% endif %}
+                  </a>
+                </th>
+                <th style="width: 150px;" class="text-center">Status</th>
+                <th style="width: 200px;" class="text-center">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for key, value in data %}
+              <tr id="row-{{ value.id|raw }}">
+                <td>{{ value.name | e }}</td>
+                <td class="text-center">{{ value.tier | e }}</td>
+                <td class="text-center">
+                  <div class="switch">
+                    <input class="cmn-toggle cmn-toggle-round-flat status-switch" id="switch-{{ value.id }}" data-id="{{ value.id }}" type="checkbox"{{ value.status == '1' ? ' checked' : '' }}>
+                    <label for="switch-{{ value.id }}"></label>
+                  </div>
+                </td>
+                <td class="text-center">
+                  <div class="dropdown">
+                    <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdown-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action</button>
+                    <div class="dropdown-menu" aria-lablledby="dropdown-1">
+                      <a 
+                        class="dropdown-item" 
+                        href="{{ url('user_group.edit', {
+                          'id': value.id
+                        }) }}">
+                        <span class="fa fa-edit"> </span>&nbsp; Edit</a>
+                      <a class="dropdown-item delete-button" id="delete-{{ value.id }}" data-id="{{ value.id }}" href="">
+                        <span class="fa fa-trash"> </span>&nbsp; Send to Trash</a>
+                    </div>
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+          <header class="datatable__footer">
+            <div class="datatable__button">
+              <a href="{{ url('user_group.create') }}">
+                <span class="fa fa-plus"></span>&nbsp; Create New Record</a>
+            </div>
+            {% include 'admin/partials/pagination.html' %}
+          </header>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  
+  $(document).ready(function(e) {
+    $('.status-switch').statusSwitcher('.status-switch', {
+      url: 'user-group/toggle-status/(:id)',
+    });
+
+    $('.delete-button').deleteButton('.delete-button', {
+      url: 'user-group/(:id)',
+    });
+  })
+
+</script>
+{% endblock %}

@@ -1,0 +1,27 @@
+{
+  "name": "skeleton",
+  "version": "0.0.1",
+  "description": "Skeleton buat starting project",
+  "author": "Harun Al Rasyid <harunsadja@gmail.com>",
+  "main": "source/js/main.js",
+  "private": true,
+  "scripts": {
+    "admin": "gulp admin",
+    "test": "jest"
+  },
+  "dependencies": {
+    "jquery": "^3.3.1",
+    "lodash": "^4.17.4"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^3.9.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-data": "^1.2.1",
+    "gulp-js-minify": "0.0.3",
+    "gulp-plumber": "^1.1.0",
+    "gulp-prettify": "^0.5.0",
+    "gulp-uglify": "^3.0.0"
+  },
+  "license": "ISC"
+}

@@ -1,0 +1,59 @@
+{% extends 'admin/app.html' %}
+
+{% block content %}
+<div class="main-wrapper">
+  <div class="right-spacer"></div>
+  <div class="content-body">
+    <div class="content-body__wrap" id="site-body">
+      <div class="m-4">
+        <header>
+          <h3>{{ title }}</h3>
+        </header>
+      </div>
+      {% include 'admin/partials/breadcrumb.html' %}
+      <div class="m-4">
+        <form method="POST" action="{{ target }}">
+          <div class="dataform">
+            <div class="dataform__main">
+              {% include 'admin/partials/info.html' %}
+              <div class="dataform__group">
+                <label for="frm-title">Full Name</label>
+                <input class="dataform__input" id="frm-title" type="text" name="fullname" value="{{ data.fullname | raw }}" placeholder="Full Name..">
+                {% include 'admin/partials/error.html' with {'field': 'fullname'} %}
+              </div>
+              <div class="dataform__group">
+                <label for="frm-title">Account Name</label>
+                <input class="dataform__input" id="frm-title" type="text" name="username" value="{{ data.username | raw }}" placeholder="Account Name..">
+                {% include 'admin/partials/error.html' with {'field': 'username'} %}
+              </div>
+              <div class="dataform__group">
+                <label for="frm-title">User Group</label>
+                <select class="dataform__input" name="user_group_id">
+                {% for key, item in user_group.data %}
+                  <option value="{{ item.id }}"{{ data.user_group_id == item.id ? ' selected' : '' }}>{{ item.name }}</option>
+                {% endfor %}
+                </select>
+              </div>
+              <div class="dataform__group">
+                <label for="frm-title">Email</label>
+                <input class="dataform__input" id="frm-title" type="text" name="email" value="{{ data.email | raw }}" placeholder="Email..">
+                {% include 'admin/partials/error.html' with {'field': 'email'} %}
+              </div>
+              <div class="dataform__group">
+                <label for="frm-title">Phone Number</label>
+                <input class="dataform__input" id="frm-title" type="text" name="phone" value="{{ data.phone | raw }}" placeholder="Phone Number..">
+                {% include 'admin/partials/error.html' with {'field': 'phone'} %}
+              </div>
+              <div class="dataform__group">
+                <div class="dataform__button">
+                  <button type="submit">Save Changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

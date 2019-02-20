@@ -1,0 +1,9 @@
+{
+    "roles": {
+        "admin_dashboard": "Admin Dashboard",
+        "user_group_read": "User Group Read",
+        "user_group_write": "User Group Write",
+        "user_read": "User Read",
+        "user_write": "User Write"
+    }
+}

@@ -1,0 +1,7 @@
+/vendor/
+/log/
+/cache/
+/node_modules/
+/public/images/article/**/*.jpg
+/public/images/content/**/*.jpg
+/public/images/user/**/*.jpg

@@ -1,0 +1,32 @@
+{
+    "user": [
+        {
+            "username": "harun",
+            "password": "12345",
+            "name": "Harun Al Rasyid",
+            "email": "harun@digitalsiber.id",
+            "phone": "+12345",
+            "user_group": "developer"
+        },
+        {
+            "username": "admin",
+            "password": "12345",
+            "name": "Administrator",
+            "email": "harun@digitalsiber.id",
+            "phone": "+12345",
+            "user_group": "administrator"
+        }
+    ],
+    "user_group": [
+        {
+            "name": "developer",
+            "role": "[\"admin_dashboard\",\"user_group_read\",\"user_group_write\",\"user_read\",\"user_write\",\"page_read\",\"page_write\",\"post_read\",\"post_write\",\"category_read\",\"category_write\",\"article_read\",\"article_write\",\"settings_read\",\"settings_write\"]",
+            "tier": 1
+        },
+        {
+            "name": "administrator",
+            "role": "[\"user_read\",\"user_write\",\"user_group_read\",\"user_group_write\",\"page_read\",\"page_write\"]",
+            "tier": 2
+        }
+    ]
+}

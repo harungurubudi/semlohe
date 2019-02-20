@@ -1,0 +1,43 @@
+{% spaceless %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	  
+    <title>Admin Panel - {{ title }}</title>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="{{ 'admin/css/font-awesome.min.css' | assets }}" rel="stylesheet">
+    <link href="{{ 'admin/libs/bootstrap-datetimepicker-5.0.0/css/tempusdominus-bootstrap-4.css' | assets }}" rel="stylesheet">
+    <link href="{{ 'admin/libs/summernote-0.8.9/summernote-bs4.css' | assets }}" rel="stylesheet">
+    <link href="{{ 'admin/libs/nprogress-0.2.0/nprogress.css' | assets }}" rel="stylesheet">
+    <link href="{{ 'admin/css/style.css' | assets }}" rel="stylesheet">
+    {% block stylesheets %}{% endblock %}
+  </head>
+
+  <body>
+    <div class="container">      
+        {% include 'admin/partials/sidebar.html' %}
+        {% include 'admin/partials/top_nav.html' %}
+
+        {% block content %}{% endblock %}
+
+    </div>
+    <script src="{{ 'admin/libs/jquery-3.3.1.min.js' | assets }}"></script>
+    <script src="{{ 'admin/libs/popper.min.js' | assets }}"></script>
+    <script src="{{ 'admin/libs/moment.js' | assets }}"></script>
+    <script src="{{ 'admin/libs/bootstrap-4.0.0/js/bootstrap.min.js' | assets }}"></script>
+    <script src="{{ 'admin/libs/bootstrap-datetimepicker-5.0.0/js/tempusdominus-bootstrap-4.min.js' | assets }}"></script>
+    <script src="{{ 'admin/libs/bootstrap-confirmation.min.js' | assets }}"></script>
+    <script src="{{ 'admin/libs/bootstrap-notify-3.1.3/bootstrap-notify.min.js' | assets }}"></script>
+    <script src="{{ 'admin/libs/bootbox.min.js' | assets }}"></script>
+    <script src="{{ 'admin/libs/nprogress-0.2.0/nprogress.js' | assets }}"></script>
+    <script src="{{ 'admin/js/index.bundle.js' | assets }}"></script>
+    {% block scripts %}{% endblock %}
+  </body>
+</html>
+{% endspaceless %}

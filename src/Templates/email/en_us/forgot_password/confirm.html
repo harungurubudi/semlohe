@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style>
+      body {
+        background-color: #EAEAEA;
+        text-align: center;
+      }
+
+      .container {
+        max-width: 100%;
+        text-align: center;
+        margin: 20px auto;
+        background-color: white;
+        border: 1px solid #EAEAEA;
+      }
+
+      p {
+        font-size: 16px;
+      }
+
+      header {
+        margin: 0 0 20px;
+        padding: 20px;
+        border-bottom: 1px solid #DADADA;
+        background-color: #313131;
+      }
+
+      header img {
+        width: 80%;
+        max-width: 200px;
+      }
+
+      footer {
+        margin: 20px 0;
+        padding: 20px 0;
+        border-top: 1px solid #DADADA;
+      }
+
+      footer, footer p {
+        font-size: 12px;
+        color: #666666;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <a title="Visitbali Logo" href="https://semlohe.id">
+          <img src="https://semlohe.id/assets.v2/img/semlohe.png" alt="semlohe.id" />
+        </a>
+      </header>
+      <p>Hi, {{ user.fullname }}</p>
+      <p>We received a request to reset your password.</p>
+      <p>
+        <a href="{{ url('forgot_password.change', {
+          'uid': user.id,
+          'token': token
+        }) }}">
+          Click here to change your password
+        </a>
+      </p>
+      <p>
+        If it wasn't you, just ignore this email. We won't make any change to your account.
+      </p>
+      <footer>
+        <p>This message was sent to {{ user.email }} at your request.</p>
+        <p>Visitbali.id</p>
+      </footer>
+    </div>
+  </body>
+</html>

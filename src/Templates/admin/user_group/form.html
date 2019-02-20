@@ -1,0 +1,70 @@
+{% extends 'admin/app.html' %}
+
+{% block content %}
+<div class="main-wrapper">
+  <div class="right-spacer"></div>
+  <div class="content-body">
+    <div class="content-body__wrap" id="site-body">
+      <div class="m-4">
+        <header>
+          <h3>{{ title }}</h3>
+        </header>
+      </div>
+      {% include 'admin/partials/breadcrumb.html' %}
+      <div class="m-4">
+        <form method="POST" action="{{ target }}">
+          <div class="dataform">
+            <div class="dataform__main">
+              {% include 'admin/partials/info.html' %}
+              <div class="dataform__group">
+                <label for="frm-title">Group Name</label>
+                <input class="dataform__input" id="frm-title" type="text" name="name" value="{{ data.name | raw }}" placeholder="Group Name..">
+                {% include 'admin/partials/error.html' with {'field': 'name'}  %}
+              </div>
+              <div class="dataform__group">
+                <label for="frm-title">Group Tier</label>
+                <select class="dataform__input" name="tier">
+                {% for i in actor.tier..10 %}
+                  <option value="{{ i }}"{{ data.tier == i ? ' selected': '' }}>{{ i }}</option>
+                {% endfor %}
+                </select>
+              </div>
+              <div class="dataform__group">
+                <label for="frm-title">
+                  Roles
+                  <div class="dataform__chk-control" id="chk-control"></div>
+                </label>
+                <ul class="dataform__chk-list">
+                  {% for key, value in 'roles' | map %}
+                  <li>
+                    <div class="dataform__checkbox">
+                      <input class="custom-control-input role-chk" name="role[]" value="{{ key }}" type="checkbox" id="role-cbk-{{ key }}" {{ key in data.role ? 'checked' : '' }}/>
+                      <label class="custom-control-label" for="role-cbk-{{ key }}">{{ value }}</label>
+                    </div>
+                  </li>
+                  {% endfor %}
+                </ul>
+              </div>
+              <div class="dataform__group">
+                <div class="dataform__button">
+                  <button type="submit">Save Changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  $(document).ready(function() {
+    $('#chk-control').chkControl('#chk-control', {
+      targetSelector: '.role-chk'
+    });
+  });
+</script>
+{% endblock %}

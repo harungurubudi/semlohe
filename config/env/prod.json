@@ -1,0 +1,57 @@
+{
+    "base": {
+        "app_name": "Semlohe",
+        "url": "http://semlohe.test",
+        "assets": "http://semlohe.test/public/assets"
+    },
+    "default": {
+        "locale": "id_id",
+        "lang": "id"
+    },
+    "env": {
+        "name": "prod",
+        "enable_profiler": true,
+        "debug": false
+    },
+    "db": {
+        "driver": "mysql",
+        "host": "<host>",
+        "port": <port>,
+        "database": "<db>",
+        "username": "<username>",
+        "password": "<password>",
+        "charset": "utf8",
+        "collation": "utf8_unicode_ci",
+        "prefix": "",
+        "strict": false,
+        "engine": null,
+        "logging": true
+    },
+    "mail": {
+        "from": "<from config>",
+        "from_email": "<from email config>",
+        "smtp": {
+            "host": "<smtp host>",
+            "port": "<smtp port>",
+            "username": "<username>",
+            "password": "<password>",
+            "encryption": null,
+            "auth_mode": null
+        }
+    },
+    "cookie": {
+        "ttl": 7776000
+    },
+    "security": {
+        "encryption_key": "def000002eb60a2573968ff1f1c0e7c4e37c88c86fcf95dd7ed19a5e01b39bf731177654f965a275b55c05c8d6b831aa0f18b27fe343c6754c4ef11f401083e65c597c94",
+        "jwt_key": "05MNYv12RdqGGGf9KywmcrSqVzSBY3jN"
+    },
+    "token_payload": {
+        "login_access_token": "EX0KsQ2LP[aed#ca",
+        "login_refresh_token": "kcW}KBJqR{8zvldr",
+        "auth_code": "t$u&?wgxF?mt]?{p",
+        "oauth_access_token": "6V[j0FRGgl?WmR?}",
+        "oauth_refresh_token": "f2gaz}1Pt5NU",
+        "change_password": "0?znQ7w^jxZ@m:vb"
+    }
+}

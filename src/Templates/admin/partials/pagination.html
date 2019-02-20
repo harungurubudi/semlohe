@@ -1,0 +1,29 @@
+{% set pagination = meta.pagination %}
+<nav class="datatable_pagination" aria-label="Page navigation example">
+  <ul>
+    {% if pagination.links.prev == null %}
+    <li class="disabled">
+      <a>Previous</a>
+    </li>
+    {% else %}
+    <li>
+      <a href="{{ pagination.links.prev }}">Previous</a>
+    </li>
+    {% endif %}
+
+    {% for key, value in pagination.links.pages %}
+    <li{{ value.isCurrent == true ? ' class="active"' : '' }}>
+      <a href="{{ value.url }}">{{ value.num }}</a>
+    </li>  
+    {% endfor %}
+    {% if pagination.links.next == null %}
+    <li class="disabled">
+      <a>Next</a>
+    </li>
+    {% else %}
+    <li>
+      <a href="{{ pagination.links.next }}">Next</a>
+    </li>
+    {% endif %}
+  </ul>
+</nav>

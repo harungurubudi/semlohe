@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="{{ 'admin/css/font-awesome.min.css' | assets }}" rel="stylesheet">
+    <link href="{{ 'admin/css/login.css' | assets }}" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <div class="login">
+        <form action="{{ target }}" method="post">
+          <div class="login__form">
+            <header>
+              <h1>Forgot Password </h1>
+            </header>
+            <div class="login__form-input">
+              <input 
+                name="email" 
+                type="text" 
+                value="{{ credential.email is defined ? credential.email : '' }}"
+                placeholder="Your email here" />
+                {% if errors.email is defined and errors.email is not empty %}
+                <ul class="parsley-errors-list filled">
+                  {% for error in errors.email %}
+                  <li class="parsley-required">{{ error | e }}</li>
+                  {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+            <div class="login__form-submit">
+              <button type="submit">Submit </button>
+              <a href="{{ url('login.index') }}">Back to Login</a>
+              <div class="clearfix"></div>
+            </div>
+          </div>
+        </form>
+        <div class="copyright">©2018 All Rights Reserved. Privacy and Terms.</div>
+      </div>
+    </div>
+  </body>
+</html>

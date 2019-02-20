@@ -1,0 +1,26 @@
+<div class="top-nav">
+  <div class="top-nav__item top-nav__item--right">
+    <div class="user-nav dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="user-dropdown">
+      <a href="#">
+        <div class="user-nav__wrap">
+          <div class="user-nav__photo">
+            <fig>
+              <img src="{{ (actor.id ~ '.jpg') | image('user', '1_1') }}" alt="">
+            </fig>
+          </div>
+          <div class="user-nav__name">welcome,
+            <h2>Harun Al Rasyid</h2>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="user-dropdown dropdown-menu" aria-labelledby="user-dropdown">
+      <a class="dropdown-item" href="#">Profile</a>
+      <a class="dropdown-item" href="#">User Settings</a>
+      <a class="dropdown-item" href="#">Help</a>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item" href="{{ url('login.logout') }}">Sign Out</a>
+    </div>
+  </div>
+  <div class="clearfix"></div>
+</div>

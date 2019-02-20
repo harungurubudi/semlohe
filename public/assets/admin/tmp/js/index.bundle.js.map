@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///./source/js/admin/index.js"],"names":[],"mappings":";;;;;;;AAAA,kB","file":"index.bundle.js","sourcesContent":["alert('asolole');\n\n\n//////////////////\n// WEBPACK FOOTER\n// ./source/js/admin/index.js\n// module id = 0\n// module chunks = 0"],"sourceRoot":""}

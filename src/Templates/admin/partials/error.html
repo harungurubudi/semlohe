@@ -1,0 +1,9 @@
+{% set errors = _context['errors'] %}
+
+{% if field is defined and errors[field] is defined and errors[field] is not empty %}
+  <ul class="dataform__error">
+  {% for error in errors[field] %}
+    <li>{{ error | e }}</li>
+  {% endfor %}
+  </ul>
+{% endif %}

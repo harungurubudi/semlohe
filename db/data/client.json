@@ -1,0 +1,19 @@
+{
+  "client": [
+    {
+      "id": "vs-01",
+      "secret": "56fc0fb97c2d72b251f9792a7420f524",
+      "jwt_key": "y6tas0te0rl4p5a31p6awjxx3s17fqfk",
+      "scope": "user_permission user_scope",
+      "grant_types": "authorization_code",
+      "redirect_uri": "https://semlohe.id/admin",
+      "name": "Visitbali administrator page",
+      "email": "",
+      "address": "",
+      "organization": "DSI",
+      "description": "",
+      "autoapprove": "1"
+    }
+  ]
+}
+        
